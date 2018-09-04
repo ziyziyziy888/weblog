@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git@gitee.com:jae/weapp-github-trending.git"
   },
-  "author": "Jaeger <JaegerCode@gmail.com>",
+  "author": "ZhangZiYuan <zhangziyuand@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@mindev/min-cli": "^1.0.7-beta.6",

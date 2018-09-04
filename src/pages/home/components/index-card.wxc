@@ -4,12 +4,12 @@
 
            <view class="box">
                 <view class="body">
-                   <view class="body-left" bind:tap="handleInfo" data-ns="{{data.ns}}" data-name="{{data.name}}">
+                   <view class="body-left" bind:tap="handleInfo" data-id="{{data.article_id}}" data-name="{{data.title}}">
                        <view class="body-title-box">
-                           <text class="body-title">{{data.name}}</text>
+                           <text class="body-title">{{data.title}}</text>
                        </view>
                        <view class="body-desc-box">
-                           <wxc-elip class="body-desc" line="3">{{data.desc}}</wxc-elip>
+                           <wxc-elip class="body-desc" line="3">{{data.breif}}</wxc-elip>
                        </view>
                    </view>
                    <view class="body-right">
@@ -17,30 +17,30 @@
                             <image mode="aspectFit" class="img" src="{{data.author_avatar}}" />
                         </view>
                         <view class="author">
-                            <text>{{data.ns}}</text>
+                            <text>{{data.author}}</text>
                         </view>
                    </view>
                 </view>
                 <view class="footer">
-                     <view class="footer-item" wx:if="{{data.lang !== ''}}">
-                            <my-icon type="pen"></my-icon>
-                            <text class="footer-text">{{data.lang}}</text>
-                        </view>
+                    <!-- <view class="footer-item" wx:if="{{data.lang !== ''}}">
+                        <my-icon type="pen"></my-icon>
+                        <text class="footer-text">{{data.lang}}</text>
+                    </view>
 
-                        <view class="footer-item">
-                            <my-icon type="star"></my-icon>
-                            <text class="footer-text">{{data.star}}</text>
-                        </view>
+                    <view class="footer-item">
+                        <my-icon type="star"></my-icon>
+                        <text class="footer-text">{{data.star}}</text>
+                    </view>
 
-                        <view class="footer-item">
-                            <my-icon type="fork"></my-icon>
-                            <text class="footer-text">{{data.fork}}</text>
-                        </view>
+                    <view class="footer-item">
+                        <my-icon type="fork"></my-icon>
+                        <text class="footer-text">{{data.fork}}</text>
+                    </view> -->
 
-                        <view class="footer-item">
-                            <my-icon type="star"></my-icon>
-                            <text class="footer-text">{{data.since_star}} stars today</text>
-                        </view>
+                    <view class="footer-item">
+                        <my-icon type="star"></my-icon>
+                        <text class="footer-text">{{data.tags}}</text>
+                    </view>
                 </view>
            </view>
 
@@ -71,10 +71,10 @@ export default {
   },
   methods: {
       handleInfo: function(event) {
-        let ns = event.currentTarget.dataset.ns.trim()
-        let name = event.currentTarget.dataset.name.trim()
+        let id = event.currentTarget.dataset.id
+        let name = event.currentTarget.dataset.name
         wx.navigateTo({
-            url: `info?ns=${ns}&name=${name}`
+            url: `info?id=${id}&name=${name}`
         })
     }
   }
@@ -160,7 +160,8 @@ export default {
         display: flex;
         align-items: center;
         .footer-item {
-            display: inline-block;
+            display: flex;
+            align-items: center;
             margin-left: 20rpx;
             &:nth-child(1) {
                 margin-left: @margin;

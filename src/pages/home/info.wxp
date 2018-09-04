@@ -9,7 +9,7 @@
             </view>
         </view>
         <view class="title-box">
-            <text class="title">README</text>
+            <text class="title">Meicai Team</text>
         </view>
         <view scroll-y class="article">
             <import src="../../common/libs/wemark/wemark.wxml" ></import>
@@ -26,6 +26,7 @@
 
 <script>
 import Github from '../../models/github'
+import Blog from '../../models/blog'
 
 var wemark = require('../../common/libs/wemark/wemark');
 
@@ -55,11 +56,12 @@ config: {
       this.setData({
           query
       })
-      Github.getReadme(query.ns,query.name).then((res) => {
+      Blog.getDetail(query.id).then((res) => {
+            const { data } = res 
+
+            // let content = res.data.content.replace(/!\[([^\]]+)\]\(([^http][^\)]+)\)/g,`![$1](https://raw.githubusercontent.com/${query.ns}/${query.name}/master/$2)`)
             
-            let content = res.data.content.replace(/!\[([^\]]+)\]\(([^http][^\)]+)\)/g,`![$1](https://raw.githubusercontent.com/${query.ns}/${query.name}/master/$2)`)
-            
-            wemark.parse(content, this, {
+            wemark.parse(data.data.origin, this, {
                 name: 'wemark'
             })
 
@@ -81,8 +83,8 @@ config: {
   onShareAppMessage () {
     let query = this.data.query
     return {
-      title: `开源项目：${query.ns}/${query.name}`,
-      path: `/pages/home/info?ns=${query.ns}&name=${query.name}`
+      title: `美菜产品技术团队：${query.name}`,
+      path: `/pages/home/info?id=${query.id}&name=${query.name}`
     }
   }
 }

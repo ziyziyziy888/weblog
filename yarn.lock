@@ -1559,7 +1559,7 @@ error-ex@^1.2.0, error-ex@^1.3.1:
   dependencies:
     is-arrayish "^0.2.1"
 
-es6-promise@^4.1.0:
+es6-promise@^4.1.0, es6-promise@^4.2.4:
   version "4.2.4"
   resolved "http://registry.npm.taobao.org/es6-promise/download/es6-promise-4.2.4.tgz#dc4221c2b16518760bd8c39a52d8f356fc00ed29"
 
@@ -4322,6 +4322,10 @@ write-pkg@^3.1.0:
   dependencies:
     sort-keys "^2.0.0"
     write-json-file "^2.2.0"
+
+wx-promise-pro@^2.4.2:
+  version "2.6.0"
+  resolved "http://registry.npm.taobao.org/wx-promise-pro/download/wx-promise-pro-2.6.0.tgz#2fcbc95b99ce2e2da32bb7bb590d37377cecb03b"
 
 wx-promise-request@^2.1.3:
   version "2.1.3"

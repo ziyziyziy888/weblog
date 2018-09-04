@@ -6,7 +6,7 @@ class Base
 {
     constructor () {
         // 修改这里的地址为自己的服务器地址
-        this.host = 'https://xxxx.com/api'
+        this.host = 'https://fe.meicai.cn/'
     }
 
     url (path) {
