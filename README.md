@@ -1,5 +1,3 @@
-# Weapp Github Trending
-微信小程序：Github今日榜单
 
 ## 技术栈
 
@@ -14,15 +12,6 @@
 - ES6: JS语法
 - LESS：CSS 预处理语言
 - GitHub API、QueryList: 提供数据支持
-
-## 体验
-<img src="https://raw.githubusercontent.com/jae-jae/_resources/master/img/20180706182818.jpg" width="300px" /> <img src="https://raw.githubusercontent.com/jae-jae/_resources/master/img/20180706182858.jpg" width="300px" />
-
-## 截图
-
-<img src="https://raw.githubusercontent.com/jae-jae/_resources/master/img/20180706182338.jpg" width="300px" /> <img src="https://raw.githubusercontent.com/jae-jae/_resources/master/img/20180706183228.jpg" width="300px" /> <img src="https://raw.githubusercontent.com/jae-jae/_resources/master/img/20180706183327.jpg" width="300px" /> <img src="https://raw.githubusercontent.com/jae-jae/_resources/master/img/20180706181801.gif" width="300px" />
-
-
 
 ## Usage
 
