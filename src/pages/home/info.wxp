@@ -1,31 +1,37 @@
 <template>
     <view class="body">
-        <view class="top">
-            <view class="bar" bind:tap="handleBack">
-                <wxc-button type="success" plain="{{true}}" btnStyle="min-width: 66rpx;padding: 0;border:0">
-                    <wxc-icon color="#000" size="36" type="arrow-left"></wxc-icon>
-                </wxc-button>
-                <text class="bar-title">{{query.name}}</text>
-            </view>
-        </view>
         <view class="title-box">
             <text class="title">Meicai Team</text>
         </view>
+        <view class="real-title">
+            <text class="bar-title">{{detail.title}}</text>
+        </view>
         <view scroll-y class="article">
             <import src="../../common/libs/wemark/wemark.wxml" ></import>
+
             <template is="wemark" data="{{...wemark}}"></template>
 
             <view wx:if="{{showLoading}}" class="loading">
                 <my-icon type="loading" />
             </view>
-            
+        </view>
+        <view class="top">
+            <view class="bar" bind:tap="handleBack">
+                <wxc-button type="success" plain="{{true}}" btnStyle="min-width: 66rpx;padding: 0;border:0">
+                    <wxc-icon color="#000" size="48" type="home"></wxc-icon>
+                </wxc-button>
+            </view>
+            <view class="bar">
+                <wxc-button open-type="share" plain="{{true}}" btnStyle="min-width: 66rpx;padding: 0;border:0" bind:tap="handleShare">
+                    <wxc-icon color="#000" size="48" type="share"></wxc-icon>
+                </wxc-button>
+            </view>
         </view>
        <notice customLoading="{{true}}" showLoading="{{showLoading}}" showError="{{showError}}" />
     </view>
 </template>
 
 <script>
-import Github from '../../models/github'
 import Blog from '../../models/blog'
 
 var wemark = require('../../common/libs/wemark/wemark');
@@ -46,11 +52,21 @@ config: {
   data: {
       wemark:{},
       query: {},
+      detail: {},
       showLoading: true,
       showError: false
   },
-  handleBack () {
-      wx.navigateBack()
+  handleBack() {
+    if (getCurrentPages().length > 1) {
+      wx.navigateBack();
+    } else {
+      wx.redirectTo({
+        url: '/pages/home/index'
+      });
+    }
+  },
+  handleShare() {
+    wx.showShareMenu();
   },
   onLoad: function (query) {
       this.setData({
@@ -59,14 +75,13 @@ config: {
       Blog.getDetail(query.id).then((res) => {
             const { data } = res 
 
-            // let content = res.data.content.replace(/!\[([^\]]+)\]\(([^http][^\)]+)\)/g,`![$1](https://raw.githubusercontent.com/${query.ns}/${query.name}/master/$2)`)
-            
             wemark.parse(data.data.origin, this, {
-                name: 'wemark'
+              name: 'wemark'
             })
 
             this.setData({
-                showLoading: false
+              showLoading: false,
+              detail: data.data
             })
        }).catch(() => {
            this.setData({
@@ -81,10 +96,11 @@ config: {
        })
   },
   onShareAppMessage () {
-    let query = this.data.query
+    let { query, detail } = this.data;
+
     return {
-      title: `美菜产品技术团队：${query.name}`,
-      path: `/pages/home/info?id=${query.id}&name=${query.name}`
+      title: `美菜产品技术团队：${detail.name}`,
+      path: `/pages/home/info?id=${query.id}`
     }
   }
 }
@@ -96,20 +112,20 @@ config: {
         font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
     }
     .top {
-        position: fixed;
-        top: 0;
-        z-index: 1000;
-        background-color: #fff;
-        // background-color: rgb(131, 98, 98);
         height: 130rpx;
         width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items:center;
+        justify-content:center;
+
+
         
         .bar {
-            position: absolute;
-            background-color: #fff;
-            width: 100%;
-            top: 50rpx;
-            left: 20rpx;
+            justify-content:center;
+            align-items:center;
+            display:flex;
+            width: 30%;
             .bar-title {
                 // font-size: 43rpx;
                 margin-top: 30rpx;
@@ -121,7 +137,6 @@ config: {
     .title-box {
         background-color: #fff;
         position: relative;
-        top: 130rpx;
         height: 170rpx;
         width: 100%;
         border-bottom: 5rpx solid rgba(22, 151, 61, 0.5);
@@ -130,16 +145,20 @@ config: {
             bottom: 0;
             // display: inline-block;
             left: 20rpx;
-            font-size: 43rpx;
-            color: gray;
+            font-size: 44rpx;
+            color: #30C790;
             width: 100%;
-            
         }
+    }
+    .real-title {
+        font-size: 48rpx;
+        color: #000000;
+        width: 90%;
+        margin: auto;
     }
 
     .article {
-        // margin: 40rpx 50rpx;
-        margin: 190rpx 50rpx 40rpx;
+        margin: 40rpx 50rpx;
         .loading {
             width: 100px;
             height: 100px;
