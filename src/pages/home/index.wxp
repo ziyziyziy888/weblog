@@ -121,7 +121,6 @@ export default {
       showLoading: true,
       refreshData: true
     })
-    console.log('拿数据');
     Blog.getArticleList(this.data.setting)
       .then(res => {
         const list = res.data.data.filter(item => item.disabled !== 1)

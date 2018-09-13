@@ -99,7 +99,7 @@ config: {
     let { query, detail } = this.data;
 
     return {
-      title: `美菜产品技术团队：${detail.name}`,
+      title: `美菜产品技术团队：${detail.title}`,
       path: `/pages/home/info?id=${query.id}`
     }
   }
@@ -109,6 +109,8 @@ config: {
 <style lang="less">
     @import '../../common/libs/wemark/wemark.wxss';
     .body {
+        overflow: hidden;
+        width: 100vw;
         font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
     }
     .top {
@@ -166,7 +168,11 @@ config: {
         }
     }
 
-    
+    .wemark_block_code {
+      overflow: auto;
+      padding: 15rpx 25rpx;
+      border-left: 5rpx solid #6CE26C;
+    }
 
     
     
