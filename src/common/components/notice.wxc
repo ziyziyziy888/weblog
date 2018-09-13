@@ -10,7 +10,12 @@
             text="服务器繁忙，请稍后再试~"
             ></wxc-toast>
             <!-- <wxc-abnor type="REQUEST_ERROR"></wxc-abnor> -->
+        <view class="footer">
+          <text>© 美菜无线前端提供技术支持</text>
+        </view>
+        <!--
         <wxc-loadmore wx:if="{{!showLoading && !showError}}" is-end="{{true}}"></wxc-loadmore>
+        -->
     </view>
 </template>
 
@@ -37,10 +42,18 @@ export default {
       customLoading: {
           type: Boolean,
           value: false
-      }
+      },
   }
 };
 </script>
 
 <style>
+.footer {
+    color: #b6b6b6;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+    margin-bottom: 128px;
+}
 </style>

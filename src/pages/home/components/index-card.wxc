@@ -1,7 +1,6 @@
 <template>
     <view class="wrap">
         <card>
-
            <view class="box">
                 <view class="body">
                    <view class="body-left" bind:tap="handleInfo" data-id="{{data.article_id}}" data-name="{{data.title}}">
@@ -12,40 +11,18 @@
                            <wxc-elip class="body-desc" line="3">{{data.breif}}</wxc-elip>
                        </view>
                    </view>
-                   <view class="body-right">
-                        <view>
-                            <image mode="aspectFit" class="img" src="{{data.author_avatar}}" />
-                        </view>
-                        <view class="author">
-                            <text>{{data.author}}</text>
-                        </view>
-                   </view>
                 </view>
                 <view class="footer">
-                    <!-- <view class="footer-item" wx:if="{{data.lang !== ''}}">
-                        <my-icon type="pen"></my-icon>
-                        <text class="footer-text">{{data.lang}}</text>
-                    </view>
-
-                    <view class="footer-item">
-                        <my-icon type="star"></my-icon>
-                        <text class="footer-text">{{data.star}}</text>
-                    </view>
-
-                    <view class="footer-item">
-                        <my-icon type="fork"></my-icon>
-                        <text class="footer-text">{{data.fork}}</text>
-                    </view> -->
-
                     <view class="footer-item">
                         <my-icon type="star"></my-icon>
                         <text class="footer-text">{{data.tags}}</text>
                     </view>
+                    <view class="footer-item">
+                        <text>{{data.author}}</text>
+                    </view>
                 </view>
            </view>
-
         </card>
-        
     </view>
 </template>
 
@@ -74,7 +51,7 @@ export default {
         let id = event.currentTarget.dataset.id
         let name = event.currentTarget.dataset.name
         wx.navigateTo({
-            url: `info?id=${id}&name=${name}`
+            url: `info?id=${id}`
         })
     }
   }
