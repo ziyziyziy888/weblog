@@ -30,9 +30,9 @@
             <!-- <wxc-button bind:click="handleSetting" type="success" plain="{{true}}" btnStyle="min-width: 66rpx;padding: 0;border:0">
                  <my-icon type="setting" />
             </wxc-button> -->
-            <wxc-button bind:click="handleQrcode" type="success" plain="{{true}}" btnStyle="min-width: 66rpx;padding: 0;border:0">
+            <!-- <wxc-button bind:click="handleQrcode" type="success" plain="{{true}}" btnStyle="min-width: 66rpx;padding: 0;border:0">
                  <my-icon type="qrcode" />
-            </wxc-button>
+            </wxc-button> -->
             <my-icon type="loading2" wx:if="{{refreshData}}" />
         </view>
 
@@ -209,7 +209,7 @@ export default {
 .banner-mini {
   position: fixed;
   top: 0;
-  background: url("https://mmbiz.qpic.cn/mmbiz_jpg/Ziac3JNhwAiamZicnibjSQaxlO5KzHECIc6X0hlicA7CoQ2cSbxNEV7iaIribn0fyz0dZlZSVoEXBF9UGVOHpWJebqiaow/0?wx_fmt=jpeg")
+  background: url("https://img-oss.stage.yunshanmeicai.com/weixin/mall/cdn/meicai_blog/weapp/images/bg.jpg")
     no-repeat;
   background-size: cover;
   color: #fff;
@@ -232,7 +232,7 @@ export default {
 
 .banner {
   height: 400rpx;
-  background: url("https://mmbiz.qpic.cn/mmbiz_jpg/Ziac3JNhwAiamZicnibjSQaxlO5KzHECIc6X0hlicA7CoQ2cSbxNEV7iaIribn0fyz0dZlZSVoEXBF9UGVOHpWJebqiaow/0?wx_fmt=jpeg")
+  background: url("https://img-oss.stage.yunshanmeicai.com/weixin/mall/cdn/meicai_blog/weapp/images/bg.jpg")
     no-repeat;
   background-size: cover;
   // border-radius: 0 0 30% 30%;

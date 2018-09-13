@@ -16,6 +16,10 @@
 ## Usage
 
 ```shell
+# 安装脚手架工具
+
+$ yarn global add @mindev/min-cli 
+
 # 安装依赖
 $ yarn install
 
@@ -24,5 +28,13 @@ $ min dev
 
 # 编译项目
 $ min build
+```
+
+## Danger
+
+背景 图片
+
+```js
+npm run uptest ~/Desktop/bg.png[meicai_blog/weapp/images/bg.jpg]
 ```
 
