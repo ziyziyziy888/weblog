@@ -123,7 +123,7 @@ export default {
     })
     Blog.getArticleList(this.data.setting)
       .then(res => {
-        const list = res.data.data.filter(item => item.disabled !== 1)
+        const list = res.data.data.filter(item => item.disabled !== 1).reverse()
         this.setData({
           list,
           showLoading: false,
@@ -191,6 +191,7 @@ export default {
   color: #30C790;
   width: 100%;
   height: 130rpx;
+  box-shadow: .3rpx .3rpx .3rpx #ccc;
   z-index: 100;
   .banner-mini-text {
     position: absolute;

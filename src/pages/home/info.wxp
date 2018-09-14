@@ -18,12 +18,12 @@
         <view class="top">
             <view class="bar" bind:tap="handleBack">
                 <wxc-button type="success" plain="{{true}}" btnStyle="min-width: 66rpx;padding: 0;border:0">
-                    <wxc-icon color="#000" size="48" type="home"></wxc-icon>
+                    <wxc-icon class="top-icon" color="#000" size="48" type="home"></wxc-icon>
                 </wxc-button>
             </view>
             <view class="bar">
                 <wxc-button open-type="share" plain="{{true}}" btnStyle="min-width: 66rpx;padding: 0;border:0" bind:tap="handleShare">
-                    <wxc-icon color="#000" size="48" type="share"></wxc-icon>
+                    <wxc-icon class="top-icon" color="#000" size="48" type="share"></wxc-icon>
                 </wxc-button>
             </view>
         </view>
@@ -114,14 +114,16 @@ config: {
         font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
     }
     .top {
-        height: 130rpx;
+        height: 90rpx;
         width: 100%;
         display: flex;
         flex-direction: row;
         align-items:center;
         justify-content:center;
-
-
+        position: fixed;
+        background: rgb(248,248,248);
+        bottom: 0;
+        box-shadow: -0.3rpx -0.3rpx .3rpx #ccc;
         
         .bar {
             justify-content:center;
@@ -173,7 +175,5 @@ config: {
       padding: 15rpx 25rpx;
       border-left: 5rpx solid #6CE26C;
     }
-
-    
     
 </style>
