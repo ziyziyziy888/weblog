@@ -87,6 +87,7 @@ config: {
               detail: data.data
             })
        }).catch(() => {
+           this.handleBack();
            this.setData({
                showLoading: false,
                showError: true
