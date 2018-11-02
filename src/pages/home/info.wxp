@@ -6,6 +6,9 @@
         <view class="real-title">
             <text class="bar-title">{{detail.title}}</text>
         </view>
+        <view class="real-auth">
+            <text class="bar-title">Author: {{detail.author}}</text>
+        </view>
         <view scroll-y class="article">
             <import src="../../common/libs/wemark/wemark.wxml" ></import>
 
@@ -159,6 +162,13 @@ config: {
         color: #000000;
         width: 90%;
         margin: auto;
+    }
+
+    .real-auth {
+        font-size: 27rpx;
+        color: #000000;
+        width: 90%;
+        text-align: right;
     }
 
     .article {

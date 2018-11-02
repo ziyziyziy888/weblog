@@ -28,7 +28,7 @@
         </view>
 
         <view class="list-wrap">
-            <view wx:for="{{list}}" wx:key="item.article_id">
+            <view wx:for="{{list}}" wx:key="{{item.article_id}}">
               <index-card data="{{item}}" />
             </view>
         </view>
